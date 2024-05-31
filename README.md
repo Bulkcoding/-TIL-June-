@@ -1,2 +1,2 @@
 # -TIL-June-
-Today I Learned(June)
+Today I Learned(Jun
