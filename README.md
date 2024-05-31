@@ -1,2 +1,3 @@
-# -TIL-June-
-Today I Learned(Jun
+# Today I Learned(TIL) - June
+
+## 06/01
