@@ -53,3 +53,17 @@
         6<=n<=20 이면 Weird
         20<=n 이면 Not Weird
     ```
+<br>
+
+## 06/04
+
+### [ SQL 문제풀기 - HackerRank ]
+
+- STATION 테이블에서 a,e,i,o,u 로 끝나지 않는 CITY를 중복없이 출력해라.
+
+### [ java 문제풀기 - HackerRank ]
+
+- if else 문제
+
+
+<br>
