@@ -72,7 +72,7 @@
 
 ## 06/05
 
-### [ spring boot 토이프로젝트]
+### [ spring boot 토이프로젝트 ]
 - 목표
 - 구현할 내용
 - 기술
@@ -90,7 +90,7 @@
 
 ## 06/06
 
-### [ spring boot 토이프로젝트]
+### [ spring boot 토이프로젝트 ]
 
 드디어 Intellij가 jsp를 못잡던 문제를 해결했다.
 이제 erd를 생성하면 될것같다.
@@ -208,3 +208,12 @@ class StackInt{
 A값을 넣을때 먼저 그 자리로 이동시켜야한다. (buf[++top]=A)
 
 뺄때는 출력 후 자리를 이동해야한다.(return buf[top--])
+
+<br>
+
+## 06/08
+### [ SQL 문제풀기 - HackerRank ]
+- Employee 테이블에서 salary가 2000보다 많고, months가 10보다 작은 지원의 이름을 출력해라. 정렬은 employee_id 오름차순으로 하라.
+
+<br>
+
