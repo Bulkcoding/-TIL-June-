@@ -217,3 +217,41 @@ A값을 넣을때 먼저 그 자리로 이동시켜야한다. (buf[++top]=A)
 
 <br>
 
+## 06/09
+### [ SQL 문제풀기 - HackerRank ]
+- 다음과 같이 결과가 나오도록 출력하시오. 괄호안에는 직업명의 앞 1글자, 이는 이름으로 정렬. There are...이후는 총 직업수 별로 정렬하라.
+```
+Ashely(P)
+Christeen(P)
+Jane(A)
+Jenny(D)
+Julia(A)
+Ketty(P)
+Maria(A)
+Meera(S)
+Priya(S)
+Samantha(D)
+There are a total of 2 doctors.
+There are a total of 2 singers.
+There are a total of 3 actors.
+There are a total of 3 professors.
+```
+
+<br>
+
+> 결과
+
+```sql
+select name || '('  ||
+                            case when occupation = 'Doctor' then 'D' 
+                                    when occupation = 'Actor' then 'A' 
+                                    when occupation = 'Singer' then 'S' 
+                            else  'P' end || ')'
+from OCCUPATIONS
+order by name;
+
+select concat('There are a total of',concat(' ',concat(count(occupation),concat(' ',concat(lower(occupation),'s.'))))) as total from occupations
+group by occupation order by total;
+```
+
+- concat을 잘 쓰는 것이 관건이다.
