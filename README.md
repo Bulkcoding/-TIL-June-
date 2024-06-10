@@ -255,3 +255,24 @@ group by occupation order by total;
 ```
 
 - concat을 잘 쓰는 것이 관건이다.
+
+<br>
+
+## 06/10
+### [ SQL 문제풀기 - HackerRank ]
+- A,B,C 컬럼에 변의 길이가 써있다.
+```
+세 변의 길이가 같다면 Equilateral
+두 변의 길이가 같다면 Isosceles
+세 변의 길이가 다르다 Scalene
+삼각형이 만들어지지 않는다 Not A Triangle 을 출력하라.
+```
+```SQL
+select case when A+C <= B OR B+C <= A OR B+A <= C then 'Not A Triangle' 
+                   when A = C AND B= C AND B = A then 'Equilateral'
+                   when A = B OR B = C OR C = A then 'Isosceles'
+                   ELSE 'Scalene' END
+from TRIANGLES;
+```
+이런식으로 작성했는데, 처음에는 제대로 작성한것 같은데 틀렸다.
+이유를 보아하니 먼저 삼각형이 만들어지고, 그 다음이 정삼각형, 이등변삼각형 순서로 가야 정확한 결과가 나온다는 것을 늦게 깨달았다.
