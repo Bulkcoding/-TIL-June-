@@ -276,3 +276,50 @@ from TRIANGLES;
 ```
 이런식으로 작성했는데, 처음에는 제대로 작성한것 같은데 틀렸다.
 이유를 보아하니 먼저 삼각형이 만들어지고, 그 다음이 정삼각형, 이등변삼각형 순서로 가야 정확한 결과가 나온다는 것을 늦게 깨달았다.
+
+
+<br>
+
+## 06/11
+### [ spring boot 토이프로젝트 ]
+- 회원전체 조회 시, 순환참조 문제 발생
+
+
+### [ SQL 문제풀기 - HackerRank ]
+- occupation의 열을 회전시켜서 출력해라. 컬럼은 첫번째부터 Doctor,Professor,Singer,Actor 순이다.
+
+```SQL
+WITH numbered_data AS (
+    SELECT Name, Occupation,
+           ROW_NUMBER() OVER (PARTITION BY Occupation ORDER BY Name) AS rn
+    FROM OCCUPATIONS
+)
+SELECT
+    MAX(CASE WHEN Occupation = 'Doctor' THEN Name END) AS Doctor,
+    MAX(CASE WHEN Occupation = 'Professor' THEN Name END) AS Professor,
+    MAX(CASE WHEN Occupation = 'Singer' THEN Name END) AS Singer,
+    MAX(CASE WHEN Occupation = 'Actor' THEN Name END) AS Actor
+FROM numbered_data
+GROUP BY rn
+ORDER BY rn;
+```
+열과 행을 PIVOT으로 했던 경험이 있는데, 집계함수를 쓰기 애매해서 구글링을 통해 위와 같은 SQL을 짰다.
+1. WITH구문으로 임시테이블을 만들었다. 직업별 이름에 대해 ROW_NUMBER을 사용해서 직업별로 번호를 부여했다.
+2. SELECT CASE문을 사용해서 각 직업별로 행 번호에 따라 데이터를 회전
+3. GROUP BY를 이용해 행 번호별로 그룹화, MAX 함수를 사용하여 각 직업별 이름을 선택
+
+<br>
+실행결과
+
+```
+Aamina Ashley Christeen Eve
+Julia Belvet Jane Jennifer
+Priya Britney Jenny Ketty
+NULL Maria Kristeen Samantha
+NULL Meera NULL NULL
+NULL Naomi NULL NULL
+NULL Priyanka NULL NULL
+```
+
+<br>
+
