@@ -323,3 +323,39 @@ NULL Priyanka NULL NULL
 
 <br>
 
+## 06/12
+### [ spring boot 토이프로젝트 ]
+- 순환참조 문제 해결 (fetchType.LAZY를 넣으니 문제가 해결됨.)
+- 회원(개별) 조회와 게시판(개별) 조회를 구현
+
+### [ SQL 문제풀기 - HackerRank ]
+- leaf 가 없으면 inner, 자식이 없으면 leaf, 부모가 없으면 root
+
+```
+1 2
+3 2
+5 6
+7 6
+2 4
+6 4
+4 15
+8 9
+10 9
+12 13
+14 13
+9 11
+13 11
+11 15
+15 NULL
+```
+
+```sql
+select n,
+case when N in(SELECT distinct b1.n FROM BST b1 join BST b2 on b1.n = b2.p where b1.p is not null) then 'Inner'
+        when N in(SELECT distinct b1.n FROM BST b1 join BST b2 on b1.n = b2.p where b1.p is null) then 'Root' 
+        else 'Leaf' end
+from BST
+order by n;
+```
+- case when 구문을 사용했다. 셀프조인을 통해 부모를 가진 노드와 부모가 없는 노드를 구분했고 나머지 경우를 leaf라고 정의했다.
+
