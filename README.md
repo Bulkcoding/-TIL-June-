@@ -504,7 +504,8 @@ ORDER BY LENGTH(company_code), company_code으로 하려고 했는데,
 알고보니 그냥 정렬만 하면 되는 거였다.
 점점 sql 난이도가 올라가면서 한문제 한문제 푸는데 굉장히 오래걸리는것 같다.
 
-
+### [ spring boot 토이프로젝트 ]
+- 유저 이름 업데이트 구현 
 
 
 
