@@ -283,6 +283,7 @@ from TRIANGLES;
 ## 06/11
 ### [ spring boot 토이프로젝트 ]
 - 회원전체 조회 시, 순환참조 문제 발생
+- 회원 생성, 삭제구현
 
 
 ### [ SQL 문제풀기 - HackerRank ]
@@ -326,7 +327,7 @@ NULL Priyanka NULL NULL
 ## 06/12
 ### [ spring boot 토이프로젝트 ]
 - 순환참조 문제 해결 (fetchType.LAZY를 넣으니 문제가 해결됨.)
-- 회원(개별) 조회와 게시판(개별) 조회를 구현
+- 회원(개별) 조회와 게시판 조회를 구현
 
 ### [ SQL 문제풀기 - HackerRank ]
 - leaf 가 없으면 inner, 자식이 없으면 leaf, 부모가 없으면 root
@@ -364,3 +365,159 @@ order by n;
 
 ## 06/13
 ### [ spring boot 토이프로젝트 ]
+- 게시판 개별 조회
+    - (회원id로 조회, 글번호로 조회)
+
+### [ SQL 문제풀기 - HackerRank ]
+- company_code, founder, total number of lead managers, total number of senior managers, total number of managers, and total number of employees를 출력하고 company_code 를 기준으로 오름차순으로 정렬하라
+
+	![Alt text](<스크린샷 2024-06-14 122951.png>)
+
+```sql
+select C.company_code,
+            C.founder,
+            count(L.lead_manager_code) as "total lead managers",
+            count(S.senior_manager_code) as "total senior managers",
+            count(M.manager_code) as "total managers",
+            count(E.employee_code) as "total employees"
+from Company C join Lead_Manager L
+on C.company_code = L.company_code
+join Senior_Manager S
+on L.lead_manager_code = S.lead_manager_code
+join Manager M
+on S.senior_manager_code= M.senior_manager_code
+join Employee E
+on M.manager_code = E.manager_code
+GROUP BY C.company_code, C.founder
+order by C.company_code;
+```
+결과
+```
+C1 Angela 836 836 836 836
+C10 Earl 44 44 44 44
+C100 Aaron 362 362 362 362
+C11 Robert 3 3 3 3
+C12 Amy 648 648 648 648
+C13 Pamela 858 858 858 858
+C14 Maria 105 105 105 105
+C15 Joe 30 30 30 30
+C16 Linda 72 72 72 72
+C17 Melissa 288 288 288 288
+```
+자기전까지 해 봤는데, join이 잘못된건지 count가 같은 값이 나오는 문제가 생겼다. employee_code의 count가 전부 같게 들어간걸까..? 내일 다시 해 봐야겠다.
+
+<br>
+
+## 06/13
+### [ SQL 문제풀기 - HackerRank ]
+
+어제 풀어봤던 sql문을 보고 다시 풀어봤다.
+join을 내가 잘 못쓰는건가 해서 with문을 오랜만에 써봤다.
+```sql
+with
+A as
+(
+select C.company_code,
+            C.founder,
+            count(L.lead_manager_code) as "total lead managers"
+from Company C join Lead_Manager L
+on C.company_code = L.company_code
+GROUP BY C.company_code, C.founder,L.lead_manager_code
+),
+B as
+(
+select L.company_code,
+            count(S.senior_manager_code) as "total senior managers"
+from Lead_Manager L join Senior_Manager S
+on L.lead_manager_code = S.lead_manager_code
+GROUP BY L.company_code
+),
+C as
+(
+    select M.company_code,
+                count(M.manager_code) as "total managers"
+    from Senior_Manager S join Manager M
+    on S.senior_manager_code= M.senior_manager_code
+    GROUP BY M.company_code
+)
+,
+D as
+(
+    select E.company_code,
+                count(E.employee_code) as "total employees"
+    from Employee E join Manager M
+    on E.manager_code= M.manager_code
+    GROUP BY E.company_code
+)
+select A.company_code, A.founder, A."total lead managers", B."total senior managers", C."total managers", D."total employees"
+from A join B
+on A.company_code = B.company_code
+join C on B.company_code = C.company_code
+join D on C.company_code = D.company_code
+order by company_code;
+```
+이런식으로 생각보다 길게 쿼리가 나왔다.
+그런데 분명 구조는 맞게 들어가고 값도 맞는 값인것 같은데 틀리다고 해서 한참을 고민해 봤다. 그럼에도 찾지 못해서 토론에 들어가보니 count에 distinct를 써야하는것 같았다.
+
+분명 문제에서 "테이블에는 중복된 값이 포함될 수 있습니다." 라고 했는데, 이 말이 "중복된 값이 들어가 있으니 중복을 제거해라" 인 것이라 깨달았다.
+
+그래서 어제 한 쿼리문에 distinct만 추가해 봤는데, 맞는 값이 나왔다...
+```sql
+select C.company_code,
+            C.founder,
+            count(distinct L.lead_manager_code) as "total lead managers",
+            count(distinct S.senior_manager_code) as "total senior managers",
+            count(distinct M.manager_code) as "total managers",
+            count(distinct E.employee_code) as "total employees"
+from Company C join Lead_Manager L
+on C.company_code = L.company_code
+join Senior_Manager S
+on L.lead_manager_code = S.lead_manager_code
+join Manager M
+on S.senior_manager_code= M.senior_manager_code
+join Employee E
+on M.manager_code = E.manager_code
+GROUP BY C.company_code, C.founder
+order by C.company_code;
+```
+
+<br>
+
+>+++
+
+애초에 employee 값에 모든 코드값이 들어가 있어서 이렇게 짧게 쓰는것도 가능한것 같다.
+```sql
+SELECT c.company_code, c.founder, 
+            COUNT( DISTINCT e.lead_manager_code),
+            COUNT( DISTINCT e.senior_manager_code),
+            COUNT( DISTINCT e.manager_code),
+            COUNT( DISTINCT e.employee_code)
+FROM Company c
+JOIN Employee e ON  c.company_code = e.company_code
+GROUP BY c.company_code, c.founder
+ORDER BY c.company_code
+```
+
+company_code도 문자열에 숫자가 혼합되어있어서 
+
+ORDER BY LENGTH(company_code), company_code으로 하려고 했는데,
+알고보니 그냥 정렬만 하면 되는 거였다.
+점점 sql 난이도가 올라가면서 한문제 한문제 푸는데 굉장히 오래걸리는것 같다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
