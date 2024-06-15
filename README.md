@@ -508,6 +508,13 @@ ORDER BY LENGTH(company_code), company_code으로 하려고 했는데,
 - 유저 이름 업데이트 구현 
 
 
+<br>
+
+## 06/15
+### [ SQL 문제풀기 - HackerRank ]
+- CITY 테이블에서 population이 100,000이상인 도시를 count해라.
+
+
 
 
 
