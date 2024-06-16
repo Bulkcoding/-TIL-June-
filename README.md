@@ -514,7 +514,12 @@ ORDER BY LENGTH(company_code), company_code으로 하려고 했는데,
 ### [ SQL 문제풀기 - HackerRank ]
 - CITY 테이블에서 population이 100,000이상인 도시를 count해라.
 
+<br>
 
+## 06/16
+### [ SQL 문제풀기 - HackerRank ]
+- CITY 테이블에서 district 명이 California인 도시의 population을 모두 더해라.
+    - like문을 사용하여 'California%'라고 조건식에 넣었다. 항상 = 먼저 쓰려고 하는 습관은 고쳐야겠다.
 
 
 
