@@ -527,6 +527,13 @@ ORDER BY LENGTH(company_code), company_code으로 하려고 했는데,
 
 ## 06/17
 ### [ SQL 문제풀기 - HackerRank ]
+- CITY 테이블에서 district 명이 California인 도시의 population의 평균을 구하시오.
+
+### [ CS공부 ] - Database
+> 역정규화
+
+정규화를 거치면 릴레이션 간의 연산(JOIN 연산)이 많아지는데, 이로인해 성능이 저하될 우려가 있다.
+역정규화를 하는 가장 큰 이유는 성능 문제가 있는(읽기작업이 많이 필요한) DB의 전반적인 성능을 향상시키기 위함이다.
 
 
 
