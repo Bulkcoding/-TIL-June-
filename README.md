@@ -523,7 +523,10 @@ ORDER BY LENGTH(company_code), company_code으로 하려고 했는데,
 
 
 
+<br>
 
+## 06/17
+### [ SQL 문제풀기 - HackerRank ]
 
 
 
