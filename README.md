@@ -4,33 +4,38 @@
 
 ### 면접준비
 
-
+<br>
 
 ### [ SQL 문제풀기 - HackerRank ]
 
 - STATION 테이블에서 a,e,i,o,u 로 시작하고 끝나는 CITY를 중복없이 출력해라.
 
-<br>
+<br><br>
 
 ## 06/02
 
 ### 면접준비
 
+<br>
 
 ### [ SQL 문제풀기 - HackerRank ]
 
 - STATION 테이블에서 a,e,i,o,u 로 시작하지 않는 CITY를 중복없이 출력해라.
 
+<br>
 
 ### [ java 문제풀기 - HackerRank ]
 
 - scanner를 통해 숫자 3개를 받아와라
 
 <br>
+<br>
 
 ## 06/03
 
 ### 면접복기
+
+<br>
 
 
 ### [ SQL 문제풀기 - HackerRank ]
@@ -40,6 +45,8 @@
 - STATION 테이블에서 a,e,i,o,u 로 시작하거나 끝나지 않는 CITY를 중복없이 출력해라.
 
 - STATION 테이블에서 a,e,i,o,u 로 시작하지 않고 끝나지 않는 CITY를 중복없이 출력해라.
+
+<br>
 
 ### [ java 문제풀기 - HackerRank ]
 
@@ -53,7 +60,7 @@
         6<=n<=20 이면 Weird
         20<=n 이면 Not Weird
     ```
-<br>
+<br><br>
 
 ## 06/04
 
@@ -61,13 +68,15 @@
 
 - Students 테이블에서 marks가 75 이상 받은 학생을 출력해라. 단, 이름의 끝 3글자를 기준으로 오름차순 정렬을 해라. 그 후, id 번호를 기준으로 오름차순 정렬을 해라.
 
+<br>
+
 ### [ java 문제풀기 - HackerRank ]
 
 - scanner에서 string, double, int를 각각 받아서 출력해라
     - nextInt() 다음에 nextLine() 이 올 경우 개행문자가 버퍼에서 사용되기 때문에 scan.skip("(\r\n|[\n\r\u2028\u2029\u0085])?"); 을 써서 해결하는 것을 기억 해 둬야 한다.
 
 
-<br>
+<br><br>
 
 
 ## 06/05
@@ -80,13 +89,15 @@
 - erd
 - 설정 : 지금 intellij에서 jsp를 못잡아서 진행을 못하는중..
 
+<br>
+
 ### [ SQL 문제풀기 - HackerRank ]
 
 - station 테이블에서 LAT_N 의 중앙값을 구하고 소수점 4자리로 반올림해라
     - round()와 median()를 사용
 - Employee 테이블에서 직원 이름을 알파벳 순서로 출력하라
 
-<br>
+<br><br>
 
 ## 06/06
 
@@ -209,13 +220,14 @@ A값을 넣을때 먼저 그 자리로 이동시켜야한다. (buf[++top]=A)
 
 뺄때는 출력 후 자리를 이동해야한다.(return buf[top--])
 
-<br>
+<br><br>
 
 ## 06/08
 ### [ SQL 문제풀기 - HackerRank ]
 - Employee 테이블에서 salary가 2000보다 많고, months가 10보다 작은 지원의 이름을 출력해라. 정렬은 employee_id 오름차순으로 하라.
 
-<br>
+<br><br>
+
 
 ## 06/09
 ### [ SQL 문제풀기 - HackerRank ]
@@ -257,6 +269,7 @@ group by occupation order by total;
 - concat을 잘 쓰는 것이 관건이다.
 
 <br>
+<br>
 
 ## 06/10
 ### [ SQL 문제풀기 - HackerRank ]
@@ -279,11 +292,15 @@ from TRIANGLES;
 
 
 <br>
+<br>
+
 
 ## 06/11
 ### [ spring boot 토이프로젝트 ]
 - 회원전체 조회 시, 순환참조 문제 발생
 - 회원 생성, 삭제구현
+
+<br>
 
 
 ### [ SQL 문제풀기 - HackerRank ]
@@ -323,11 +340,14 @@ NULL Priyanka NULL NULL
 ```
 
 <br>
+<br>
 
 ## 06/12
 ### [ spring boot 토이프로젝트 ]
 - 순환참조 문제 해결 (fetchType.LAZY를 넣으니 문제가 해결됨.)
 - 회원(개별) 조회와 게시판 조회를 구현
+
+<br>
 
 ### [ SQL 문제풀기 - HackerRank ]
 - leaf 가 없으면 inner, 자식이 없으면 leaf, 부모가 없으면 root
@@ -362,11 +382,14 @@ order by n;
 
 
 <br>
+<br>
 
 ## 06/13
 ### [ spring boot 토이프로젝트 ]
 - 게시판 개별 조회
     - (회원id로 조회, 글번호로 조회)
+
+<br>
 
 ### [ SQL 문제풀기 - HackerRank ]
 - company_code, founder, total number of lead managers, total number of senior managers, total number of managers, and total number of employees를 출력하고 company_code 를 기준으로 오름차순으로 정렬하라
@@ -406,6 +429,7 @@ C17 Melissa 288 288 288 288
 ```
 자기전까지 해 봤는데, join이 잘못된건지 count가 같은 값이 나오는 문제가 생겼다. employee_code의 count가 전부 같게 들어간걸까..? 내일 다시 해 봐야겠다.
 
+<br>
 <br>
 
 ## 06/14
@@ -504,16 +528,20 @@ ORDER BY LENGTH(company_code), company_code으로 하려고 했는데,
 알고보니 그냥 정렬만 하면 되는 거였다.
 점점 sql 난이도가 올라가면서 한문제 한문제 푸는데 굉장히 오래걸리는것 같다.
 
+<br>
+
 ### [ spring boot 토이프로젝트 ]
 - 유저 이름 업데이트 구현 
 
 
+<br>
 <br>
 
 ## 06/15
 ### [ SQL 문제풀기 - HackerRank ]
 - CITY 테이블에서 population이 100,000이상인 도시를 count해라.
 
+<br>
 <br>
 
 ## 06/16
@@ -524,10 +552,13 @@ ORDER BY LENGTH(company_code), company_code으로 하려고 했는데,
 
 
 <br>
+<br>
 
 ## 06/17
 ### [ SQL 문제풀기 - HackerRank ]
 - CITY 테이블에서 district 명이 California인 도시의 population의 평균을 구하시오.
+
+<br>
 
 ### [ CS공부 ] - Database
 > 역정규화
@@ -543,9 +574,47 @@ INSERT, DELETE, UPDATE 같은 DML 문이 수행되었을 때, 특정 테이블�
 
 
 <br>
+<br>
 
 ## 06/18
 ### [ SQL 문제풀기 - HackerRank ]
 - city 테이블을 이용하여 city의 population을 구하여 내림하라.
     - CEIL(올림)과 FLOOR(내림)에 대해서 다시 한번 복습했다.
 
+<br>
+<br>
+
+## 06/19
+### [ SQL 문제풀기 - HackerRank ]
+- city 테이블을 이용하여 countrycode가 'JPN'인 city의 population의 합을 구하라.
+
+<br>
+
+
+### [ 정처기 대비 ]
+### Python
+#### 슬라이싱
+- sequence[start:end:step]
+    - start : 슬라이스 **시작**되는 인덱스
+    - end : 슬라이스가 **끝**나는 인덱스
+    - step : 슬라이스가 진행되는 **간격**
+
+##### 헷갈렸던거
+```python
+A = "abcdefg"
+A[::2]      // 두번에 한번 출력된다. -> aceg 
+```
+
+<br>
+
+### 싱글톤 패턴
+- 클래스의 인스턴스를 오직 하나만 생성하고, 그 인스턴스를 어디서든 접근할 수 있게 해주는 디자인패턴
+```java
+static public Connection get(){
+    if(_inst == null){          // 이 부분 을 한번 거치고 나면
+        _inst = new Connection();
+        return _inst;           // 여기서도 같은 객체
+    }
+    return _inst;               // 여기서도 같은 객체가 반환된다.
+}
+```
