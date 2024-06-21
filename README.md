@@ -645,3 +645,39 @@ static public Connection get(){
 - 확장하다 : extend()
 - 꺼내다 : pop()
 - 문자열의 순서를 뒤집는다 : reverse()
+
+
+
+<br>
+<br>
+
+## 06/21
+### [ SQL 문제풀기 - HackerRank ]
+- employees 테이블에서 salary 컬럼에서 0이 모두 삭제된 채로 값이 입력되었다. 실제 입력되야할 salary 평균값과 잘못된 salary 평균값의 차를 구하고 이를 올림하여 구하라.
+    - 문자열로 치환후 replace를 이용해 0을 모두 ''로 만든후 다시 숫자로 변환후 값을 계산. **CEIL** 로 올려주었다.
+
+<br>
+
+### [ 정처기 대비 ]
+
+### JAVA
+#### Static
+```
+static은 특정 객체에 속하지 않고, 해당 클래스의 모든 객체가 공유한다.
+클래스 수준에서 공유되는 변수나 메소드를 만들 때 유용하게 사용된다.
+```
+
+- 객체를 생성하지 않고도 메서드 호출이 가능하다.
+- static 메소드에서는 static 변수만 사용가능하다.
+    - 만약 에러문제에서 static이 없는 클래스 변수를 사용하고 있다면 그 행이 오류 원인이다.
+
+```java
+public static String get(){
+    return name;        // 오류발생 (멤버 변수 사용 불가)
+}
+```
+
+<br>
+
+#### Tread 클래스
+- Tread 클래스의 new Tread 생성자 안에는 Runnalbe 구현체가 들어가야한다.
