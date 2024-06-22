@@ -681,3 +681,11 @@ public static String get(){
 
 #### Tread 클래스
 - Tread 클래스의 new Tread 생성자 안에는 Runnalbe 구현체가 들어가야한다.
+<br>
+<br>
+
+## 06/22
+### [ SQL 문제풀기 - HackerRank ]
+- 모든 직원 중 최대 총 수입을 찾고, 이를 받는 직원의 수를 출력하라.
+    - where 절에 서브쿼리로 max를 조건으로 주고 이를 받는 지원의 수를 count 함.
+
