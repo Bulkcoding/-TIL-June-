@@ -681,6 +681,7 @@ public static String get(){
 
 #### Tread 클래스
 - Tread 클래스의 new Tread 생성자 안에는 Runnalbe 구현체가 들어가야한다.
+
 <br>
 <br>
 
@@ -688,4 +689,14 @@ public static String get(){
 ### [ SQL 문제풀기 - HackerRank ]
 - 모든 직원 중 최대 총 수입을 찾고, 이를 받는 직원의 수를 출력하라.
     - where 절에 서브쿼리로 max를 조건으로 주고 이를 받는 지원의 수를 count 함.
+
+### 블로그 포스팅(Tistory)
+
+<br>
+<br>
+
+## 06/23
+### [ SQL 문제풀기 - HackerRank ]
+- station 테이블에서 lat_n과 long_w의 합계를 소수점 2자리로 표시해라.
+    - round와 sum 사용하기
 
