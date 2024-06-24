@@ -700,3 +700,10 @@ public static String get(){
 - station 테이블에서 lat_n과 long_w의 합계를 소수점 2자리로 표시해라.
     - round와 sum 사용하기
 
+<br>
+<br>
+
+## 06/24
+### [ SQL 문제풀기 - HackerRank ]
+- station 테이블에서 38.7880 초과 137.2345 미만인 lat_n의 합을 구하여라.
+    - 함정을 조심해야 한다. between A and B 를 써서 맞는 답이 나온다고 해도. between A and B 는 A <= , B >= 이라서 요구하는 조건에 맞지 않는다. 따라서 between을 쓰지 않고 > , < 를 조건으로 써야한다.
