@@ -770,7 +770,7 @@ arr[1]은 20번이고, *(20번)은 20번 주소가 가지고 있는 값을 말�
 <br>
 <br>
 
-## 06/25
+## 06/26
 ### [ CS공부 ] - 자료구조
 #### Array와 ArrayList의 차이점
 
@@ -800,3 +800,35 @@ Array는 인덱스(index)로 해당 원소(element)에 접근할 수 있어 찾�
 
 ### [ SQL 문제풀기 - HackerRank ]
 - station 테이블에서 lat_n 이 137.2345 보다 작은 lat_n의 최대값에 대한 lomg_w를 출력하라. (소수점 4자리까지 보여라)
+
+
+<br>
+<br>
+
+## 06/27
+### [ SQL 문제풀기 - HackerRank ]
+ - p1(a,b), p2(c,d) 가 2D 평면에서 두 점이 된다.
+ ```
+ a : station테이블 lat_n의 최소값
+ b : long_2의 최소값
+ c : lat_n의 최대값
+ d : long_w의 최대값
+ ```
+
+이 두점 사이의 Manhattan Distance 거리를 소수점 4자리로 구하라.
+
+- 두 점 사이의 거리 공식을 구하는 건 줄 알았는데, 문제에 Manhattan Distance 이란, 절댓값a-c + 절댓값b-d를 구해야 하는 것이었다.
+
+<br>
+
+따라서 다음과 같다.
+
+```sql
+SELECT 
+    ROUND(
+        ABS((MAX(LAT_N) - MIN(LAT_N))) + ABS((MAX(LONG_W) - MIN(LONG_W))), 
+        4
+    )
+FROM 
+    STATION;
+```
