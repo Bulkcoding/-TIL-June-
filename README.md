@@ -852,3 +852,57 @@ int main(){
 
 - %c는 값을 받는다.
     - 반대로, printf("%c \n", p); 는 값을 받아야 하는데 주소값을 받으므로 이상한 값이 출력 될 것이다.
+
+<br>
+<br>
+
+## 06/28
+### [ SQL 문제풀기 - HackerRank ]
+ - p1(a,c), p2(b,d) 가 2D 평면에서 두 점이 된다.
+ ```
+ a : station테이블 lat_n의 최소값
+ b : lat_n의 최대값
+ c : long_2의 최소값
+ d : long_w의 최대값
+ ```
+
+이 두점 사이의 Euclidean Distance 거리를 소수점 4자리로 구하라.
+
+> Euclidean Distance 거리
+
+n차원의 공간에서 두 점간의 거리를 알아내는 공식이다. 2차원에서는 피타고라스와 동일하지만 Euclidean Distance은 모든 차원에서 사용할 수 있도록 한다.
+
+공식은 다음과 같다.
+![Alt text](image.png)
+
+
+<br>
+
+이를 통해 작성한 sql 문은 다음과 같다.
+```sql
+SELECT ROUND(SQRT(POWER(MAX(LAT_N)-MIN(LAT_N),2) + POWER(MAX(LONG_W)-MIN(LONG_W),2)) , 4)
+FROM STATION;
+```
+2차원이라 피타고라스와 풀이방식이 같다.
+
+<br>
+
+### [ 정처기 대비 ]
+### JAVA
+#### 상속
+오버라이딩 된 자식클래스의 메서드는 상위클래스의 메서드보다 **우선순위**가 높다. 따라서 같은 이름의 함수를 호출 할 경우 자식 클래스가 먼저 반응하게 된다.
+
+### 각 언어별 참 거짓
+
+|     | C |JAVA|Python|
+|:----|:------|:------:|:------:|
+|참 | 1 | true | True|
+|거짓 | 0   | false   | False|
+
+```
+헷갈리니 잘 알아둬야 한다.
+
+C에서는 참이 1, 거짓이 0 으로 출력된다.
+JAVA에서는 true, false로 출려된다. 모두 소문자임을 기억해야한다.
+Python에서는 True, False로, 앞글자가 대문자임을 기억해야한다.
+```
