@@ -908,3 +908,16 @@ C에서는 참이 1, 거짓이 0 으로 출력된다.
 JAVA에서는 true, false로 출려된다. 모두 소문자임을 기억해야한다.
 Python에서는 True, False로, 앞글자가 대문자임을 기억해야한다.
 ```
+
+<br>
+<br>
+
+## 06/29
+### [ SQL 문제풀기 - HackerRank ]
+```
+하루하루 꾸준히 하다보니 어느새 SQL의 Rank가 골드가 되었다.
+```
+<br>
+
+- city 테이블과 country 테이블이 주어진다. CONTINENT 가 'Asia'인 population의 합을 구하라.
+    - CONTINENT 컬럼은 country 테이블에, population 컬럼은 city 테이블에 있기 때문에 두 테이블을 join해서 구한다.
