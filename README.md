@@ -929,3 +929,8 @@ Python에서는 True, False로, 앞글자가 대문자임을 기억해야한다.
 ### [ SQL 문제풀기 - HackerRank ]
 - city 테이블과 country 테이블이 주어진다. CONTINENT 가 'Africa'인 도시들의 이름을 구하라.
     - CONTINENT 컬럼은 country 테이블에, 도시이름인 name 컬럼은 city 테이블에 있어서 join하여 구하였다.
+
+
+- city 테이블과 country 테이블이 주어진다. 각 Continent 에 따른 population의 평균을 구하라.
+    - CONTINENT 컬럼은 country 테이블에, population 컬럼은 city 테이블에 있어서 join하여 구하였고, Continent로 group by를 하여 각 Continent와 avg를 구하였다.
+    
